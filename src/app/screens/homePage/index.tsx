@@ -1,7 +1,7 @@
 import React from "react";
 import Statistics from "./Statistics";
 import PopularCoffies from "./PopularCoffies";
-import NewDishes from "./NewDishes";
+import Desserts from "./Desserts";
 import Advertisement from "./Advertisement";
 import ActiveUsers from "./ActiveUsers";
 import Events from "./Events";
@@ -13,7 +13,7 @@ export default function HomePage() {
     <div className={"homepage"}>
       <Statistics />
       <PopularCoffies />
-      <NewDishes />
+      <Desserts />
       <Advertisement />
       <ActiveUsers />
       <Events />
