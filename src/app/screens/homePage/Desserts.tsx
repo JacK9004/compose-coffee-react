@@ -23,7 +23,8 @@ export default function Desserts() {
                     <Box className={"category-title"}>Dessert Menu</Box>
                     <Stack className={"cards-frame"}>
                         <CssVarsProvider>
-                            {dessert.map((ele, index) => {
+                        {dessert.length !== 0 ? (
+                            dessert.map((ele, index) => {
                                 return (
                                     <Card key={index} variant="outlined" className={"card"}>
                                         <CardOverflow>
@@ -54,7 +55,10 @@ export default function Desserts() {
                                         </CardOverflow>
                                     </Card>
                                 );
-                            })}
+                            })
+                        ) : (
+                            <Box className="no-data">New products are not available</Box>
+                    )}
                         </CssVarsProvider>
                     </Stack>
                 </Stack>

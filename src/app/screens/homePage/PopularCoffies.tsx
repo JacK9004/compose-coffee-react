@@ -21,7 +21,7 @@ export default function PopularDishes() {
         <div className="popular-dishes-frame">
             <Container>
                 <Stack className="popular-section">
-                    <Box className="category-title">Popular Drink</Box>
+                    <Box className="category-title">Popular Drinks</Box>
                     <Stack className="cards-frame">
                         {list.map((ele, index) => {
                             return (

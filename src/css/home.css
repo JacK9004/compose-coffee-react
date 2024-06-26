@@ -48,6 +48,22 @@
     color: #2E2D2B;
 }
 
+.homepage .popular-dishes-frame .no-data {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 34px;
+    color: #FDD22B;
+}
+
+
 /** POPULAR DRINKS**/
 
 .homepage .popular-dishes-frame {
@@ -197,4 +213,19 @@
     display: flex;
     align-items: center;
     font-weight: 500;
+}
+
+.homepage .new-products-frame .no-data {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 34px;
+    color: #FDD22B;
 }
