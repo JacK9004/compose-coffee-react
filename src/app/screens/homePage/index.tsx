@@ -10,13 +10,13 @@ import "../../../css/home.css";
 
 export default function HomePage() {
     return (
-    <div className={"homepage"}>
+    <div className={"homepage"}>      
       <Statistics />
+      <Events />
+      <Advertisement />
       <PopularCoffies />
       <Desserts />
-      <Advertisement />
-      <ActiveUsers />
-      <Events />
+      <ActiveUsers />    
     </div>
     );
   }
