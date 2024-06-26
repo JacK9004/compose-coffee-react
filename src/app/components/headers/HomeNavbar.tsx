@@ -1,5 +1,7 @@
 import { Box, Button, Container, Stack } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import HomeIcon from '@mui/icons-material/Home';
+
 
 export function HomeNavbar() {
     const authmember = null;
@@ -16,7 +18,7 @@ export function HomeNavbar() {
                 <Stack className="links">
                      <Box className={"hover-line"}>
                         <NavLink to={"/"} activeClassName="underline">
-                            Home
+                        <HomeIcon sx={{ fontSize: 40 }} />
                         </NavLink>
                     </Box>
                     <Box className={"hover-line"}>
