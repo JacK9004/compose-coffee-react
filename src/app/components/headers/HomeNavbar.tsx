@@ -1,9 +1,10 @@
 import { Box, Button, Container, Stack } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import HomeIcon from '@mui/icons-material/Home';
+import Basket from "./Basket";
 
 
-export function HomeNavbar() {
+export default function HomeNavbar() {
     const authmember = null;
     
     return (
@@ -18,7 +19,7 @@ export function HomeNavbar() {
                 <Stack className="links">
                      <Box className={"hover-line"}>
                         <NavLink to={"/"} activeClassName="underline">
-                        <HomeIcon sx={{ fontSize: 40 }} />
+                        {/* <HomeIcon sx={{ fontSize: 40 }} /> */} Home
                         </NavLink>
                     </Box>
                     <Box className={"hover-line"}>
@@ -45,7 +46,8 @@ export function HomeNavbar() {
                             Help
                         </NavLink>
                     </Box>
-                    {/* BASKET */}
+
+                    <Basket />
 
                     {!authmember ? (
                         <Box>
