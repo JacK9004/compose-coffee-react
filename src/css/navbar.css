@@ -152,6 +152,8 @@
     height: 100%; 
     position: relative;
     overflow: hidden;
+    transform: perspective(0px);
+    box-shadow: -3px 0px 20px 14px #34343480;
 }
 
 .home-navbar .navbar-container .header-frame .video-frame .background-video {
