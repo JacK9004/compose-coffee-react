@@ -6,10 +6,10 @@ import CardOverflow from "@mui/joy/CardOverflow";
 import AspectRatio from "@mui/joy/AspectRatio";
 
 const activeUsers = [
-    { memberNick: "Jack", memberImage: "/img/Jack.jpeg" },
-    { memberNick: "Sadiya", memberImage: "/img/Sadiya.JPG"},
-    { memberNick: "Rose", memberImage: "/img/rose.webp"},
-    { memberNick: "Nusret", memberImage: "/img/nusret.webp"},
+    { memberNick: "Jack", memberImage: "/img/activeuser1.png" },
+    { memberNick: "Sadiya", memberImage: "/img/activeuser2.png"},
+    { memberNick: "Rose", memberImage: "/img/activeuser3.png"},
+    { memberNick: "Nusret", memberImage: "/img/activeuser4.png"},
 ];
 
 export default function ActiveUsers() {
@@ -17,7 +17,7 @@ export default function ActiveUsers() {
         <div className={"active-users-frame"}>
             <Container>
                 <Stack className={"main"}>
-                    <Box className={"category-title"}>Active Users</Box>
+                    <Box className={"category-title"}>Annual Win Awards</Box>
                     <Stack className={"cards-frame"}>
                     <CssVarsProvider>
                             {activeUsers.length !== 0 ? (
