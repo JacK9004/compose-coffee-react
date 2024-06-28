@@ -5,7 +5,7 @@ import Basket from "./Basket";
 
 
 export default function HomeNavbar() {
-    const authmember = null;
+    const authmember = true;
     
     return (
     <div className="home-navbar">
