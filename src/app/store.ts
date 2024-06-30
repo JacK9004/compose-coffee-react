@@ -1,7 +1,11 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import HomePageReducer from './screens/homePage/slice';
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import HomePageReducer from "./screens/homePage/slice";
+import reduxLogger from "redux-logger";  // redux storage ichida qanday ma'limotlar borligini va o'zgarishlarni kuzatish uchun kerak
 
 export const store = configureStore({
+  middleware: (getDefaultMiddleware) => 
+    // @ts-ignore
+    getDefaultMiddleware().concat(reduxLogger),
   reducer: {
     homePage: HomePageReducer,
   },
