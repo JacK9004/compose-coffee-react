@@ -8,14 +8,23 @@ import { CssVarsProvider } from "@mui/joy/styles";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import Divider from "../../components/divider"
 
-const dessert = [
-    { productName: "Caramel Waffle", imagePath: "/img/desert1.jpg" },
-    { productName: "Red Velvet Cake", imagePath: "/img/desert2.jpg" },
-    { productName: "Black Velvet Cake", imagePath: "/img/desert3.jpg" },
-    { productName: "Cranberry Cookie", imagePath: "/img/desert4.jpg" },
-];
+import { useSelector } from "react-redux";
+import { createSelector } from "reselect";
+import { retrieveDessertMenu } from "./selector";
+import { Product } from "../../../lib/types/product";
+import { serverApi } from "../../../lib/config";
+import { ProductCollection } from "../../../lib/enums/product.enum";
 
-export default function Desserts() {
+/** REDUX SLICE & SELECTOR **/
+  const dessertMenuRetriever = createSelector(
+    retrieveDessertMenu,
+    ( dessertMenu ) => ({ dessertMenu }),
+  );
+
+export default function NewDishes() {
+    const { dessertMenu } = useSelector(dessertMenuRetriever);
+
+    console.log("newDishes:", dessertMenu);
     return (
         <div className={"new-products-frame"}>
             <Container>
@@ -23,14 +32,19 @@ export default function Desserts() {
                     <Box className={"category-title"}>Dessert Menu</Box>
                     <Stack className={"cards-frame"}>
                         <CssVarsProvider>
-                        {dessert.length !== 0 ? (
-                            dessert.map((ele, index) => {
+                            {dessertMenu.length !== 0 ? (
+                            dessertMenu.map((product: Product) => {
+                                const imagePath = `${serverApi}/${product.productImages[0]}`;
+                                const sizVolume =
+                                    product.productCollection === ProductCollection.DESSERT
+                                        ? product.productSize
+                                        : product.productVolume;
                                 return (
-                                    <Card key={index} variant="outlined" className={"card"}>
+                                    <Card key={product._id} variant="outlined" className={"card"}>
                                         <CardOverflow>
-                                            {/* <div className="product-sale">Normal-size</div> */}
+                                            <div className="product-sale">{sizVolume}</div>
                                             <AspectRatio ratio="1">
-                                                <img src={ele.imagePath} alt="" />
+                                                <img src={imagePath} alt="" />
                                             </AspectRatio>
                                         </CardOverflow>
 
@@ -38,14 +52,14 @@ export default function Desserts() {
                                             <Stack className="info">
                                                 <Stack flexDirection={"row"}>
                                                     <Typography className={"title"}>
-                                                        {ele.productName}
+                                                        {product.productName}
                                                     </Typography>
                                                     <Divider width="2" height="24" bg="#d9d9d9" />
-                                                    <Typography className={"price"}>$12</Typography>
+                                                    <Typography className={"price"}>${product.productPrice}</Typography>
                                                     </Stack>
                                                     <Stack>
                                                     <Typography className={"views"}>
-                                                        20
+                                                        {product.productViews}
                                                         <VisibilityIcon 
                                                         sx={{ fontSize: 20, marginLeft: "5px" }}
                                                         />
@@ -56,9 +70,9 @@ export default function Desserts() {
                                     </Card>
                                 );
                             })
-                        ) : (
-                            <Box className="no-data">New products are not available</Box>
-                    )}
+                            ) : (
+                                <Box className="no-data">New products are not available</Box>
+                        )}
                         </CssVarsProvider>
                     </Stack>
                 </Stack>

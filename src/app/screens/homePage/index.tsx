@@ -5,29 +5,31 @@ import Desserts from "./Desserts";
 import Advertisement from "./Advertisement";
 import ActiveUsers from "./ActiveUsers";
 import Events from "./Events";
-import "../../../css/home.css";
 
 import { useDispatch } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
-import { setPopularDrinks } from "./slice";
+import { setDessertMenu, setPopularDrinks } from "./slice";
 import { Product } from "../../../lib/types/product";
 import ProductService from "../../services/ProductService";
 import { ProductCollection } from "../../../lib/enums/product.enum";
+import "../../../css/home.css";
 
 /** REDUX SLICE & SELECTOR **/
 const actionDispatch = (dispatch: Dispatch) => ({
   setPopularDrinks: (data: Product[]) => dispatch(setPopularDrinks(data)),
+  setDessertMenu: (data: Product[]) => dispatch(setDessertMenu(data)),
 });
 
 export default function HomePage() {
-  const { setPopularDrinks} = actionDispatch(useDispatch());  
+  const { setPopularDrinks, setDessertMenu} = actionDispatch(useDispatch());  
   // Selector: Store => DATA
 
   // console.log(process.env.REACT_APP_API_URL);
 
   useEffect(() => {    // // Backend server data request => DATA
       const product = new ProductService();
-      product.getProducts({
+      product
+      .getProducts({
         page: 1,
         limit: 4,
         order: "productViews",
@@ -38,6 +40,19 @@ export default function HomePage() {
         setPopularDrinks(data);
       })
       .catch((err) => console.log(err));
+
+      product
+      .getProducts({
+        page: 1,
+        limit: 4,
+        order: "createdAt",
+        productCollection: ProductCollection.DESSERT
+      })
+      .then((data) => {
+        setDessertMenu(data);
+      })
+      .catch((err) => console.log(err));
+      
    }, []);
 
     return (

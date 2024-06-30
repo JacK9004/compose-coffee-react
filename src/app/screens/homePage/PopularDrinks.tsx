@@ -33,10 +33,10 @@ export default function PopularDrinks() {
                     <Box className="category-title">Popular Drinks</Box>
                     <Stack className="cards-frame">
                     {popularDrinks.length !== 0 ? (
-                        popularDrinks.map((ele: Product) => { 
-                            const imagePath = `${serverApi}/${ele.productImages[0]}`;
+                        popularDrinks.map((product: Product) => { 
+                            const imagePath = `${serverApi}/${product.productImages[0]}`;
                             return (
-                                <CssVarsProvider key={ele._id}>
+                                <CssVarsProvider key={product._id}>
                                     <Card className={"card"}>
                                         <CardCover>
                                             <img src={imagePath} alt="" />
@@ -53,7 +53,7 @@ export default function PopularDrinks() {
                                                 textColor="#fff"
                                                 mb={1}
                                                 >
-                                                {ele.productName}
+                                                {product.productName}
                                                 </Typography>
                                                 <Typography
                                                 sx={{
@@ -63,7 +63,7 @@ export default function PopularDrinks() {
                                                     display: "flex",
                                                 }}
                                                 >
-                                                {ele.productViews}
+                                                {product.productViews}
                                                 <VisibilityIcon 
                                                     sx={{ fontSize: 25, marginLeft: "5px" }}
                                                 />
@@ -84,7 +84,7 @@ export default function PopularDrinks() {
                                             startDecorator={<DescriptionOutlinedIcon />}
                                             textColor="neutral.300"
                                             >
-                                                {ele.productDesc}
+                                                {product.productDesc}
                                             </Typography>
                                         </CardOverflow>
                                     </Card>
