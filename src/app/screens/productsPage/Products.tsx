@@ -184,9 +184,9 @@ export default function Products() {
                         alignItems: "center",
                     }}
                 >
-                    <Box className={"category-title"}>Compose Branchs</Box>
-                    <Stack flexDirection={"row"} display={"flex"} justifyContent={"space-between"} width={"100%"}>
-                        {["/img/branch1.jpg", "/img/branch2.jpg", "/img/branch3.jpg", "/img/branch4.jpg"].map((ele, index) => (
+                    <Box className={"category-title"}>Annual Win Awards</Box>
+                    <Stack flexDirection={"row"} display={"flex"} justifyContent={"space-between"} width={"100%"} className="review-box">
+                        {["/img/activeuser1.png", "/img/activeuser2.png", "/img/activeuser3.png", "/img/activeuser4.png"].map((ele, index) => (
                             <Box className={"review-box"} key={index}>
                                 <Box className={"review-img"}>
                                     <img src={ele} className={"review-img"} />                                    
