@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Statistics from "./Statistics";
 import PopularCoffies from "./PopularCoffies";
 import Desserts from "./Desserts";
@@ -9,6 +9,13 @@ import "../../../css/home.css";
 
 
 export default function HomePage() {
+    // Selector: Store => DATA
+
+    useEffect(() => {
+      // Backend server data request => DATA
+      // Slice: Data => Store
+  
+    }, []);
     return (
     <div className={"homepage"}>          
       <Events />
