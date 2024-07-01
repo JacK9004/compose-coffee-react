@@ -8,20 +8,23 @@ import Events from "./Events";
 
 import { useDispatch } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
-import { setDessertMenu, setPopularDrinks } from "./slice";
+import { setDessertMenu, setPopularDrinks, setTopUsers } from "./slice";
 import { Product } from "../../../lib/types/product";
 import ProductService from "../../services/ProductService";
 import { ProductCollection } from "../../../lib/enums/product.enum";
 import "../../../css/home.css";
+import { Member } from "../../../lib/types/member";
+import MemberService from "../../services/MemberService";
 
 /** REDUX SLICE & SELECTOR **/
 const actionDispatch = (dispatch: Dispatch) => ({
   setPopularDrinks: (data: Product[]) => dispatch(setPopularDrinks(data)),
   setDessertMenu: (data: Product[]) => dispatch(setDessertMenu(data)),
+  setTopUsers: (data: Member[]) => dispatch(setTopUsers(data)),
 });
 
 export default function HomePage() {
-  const { setPopularDrinks, setDessertMenu} = actionDispatch(useDispatch());  
+  const { setPopularDrinks, setDessertMenu, setTopUsers} = actionDispatch(useDispatch());  
   // Selector: Store => DATA
 
   // console.log(process.env.REACT_APP_API_URL);
@@ -48,10 +51,15 @@ export default function HomePage() {
         order: "createdAt",
         productCollection: ProductCollection.DESSERT
       })
-      .then((data) => {
-        setDessertMenu(data);
-      })
+      .then((data) => setDessertMenu(data))
       .catch((err) => console.log(err));
+
+    const member = new MemberService();
+    member
+      .getTopUsers()
+      .then((data) => setTopUsers(data))
+      .catch((err) => console.log(err));
+
       
    }, []);
 
