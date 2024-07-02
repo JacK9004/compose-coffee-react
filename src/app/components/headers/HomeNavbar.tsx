@@ -11,27 +11,14 @@ interface HomeNavbarProps {
     onRemove: (item: CartItem) => void;
     onDelete: (item: CartItem) => void;
     onDeleteAll: () => void;
+    setSignupOpen(isopen: boolean): void;
+    setLoginOpen(isopen: boolean): void;
 }
 
 export default function HomeNavbar(props: HomeNavbarProps) {
-    const { cartItems, onAdd, onRemove, onDelete, onDeleteAll } = props;
+    const { cartItems, onAdd, onRemove, onDelete, onDeleteAll, setSignupOpen, setLoginOpen } = props;
     const authmember = null;
-    const [count, setCount] = useState<number>(0);
-    const [value, setvalue] = useState<boolean>(true);
 
-    useEffect(() => {
-        console.log("componentDidMount", count); // DATA FETCH
-        setCount(count + 1);
-
-        return () => {
-            console.log("componentWillUnmount");
-        };
-    },[value]);
-   
-   /** HANDLERS **/
-    const buttonHandler = () => {
-        setvalue(!value);
-    };
     return (
     <div className="home-navbar">
         <Container className="navbar-container ">
@@ -82,7 +69,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                     {!authmember ? (
                         <Box>
                            <Button
-                            variant="contained" className="login-button">
+                            variant="contained" className="login-button" onClick={() => setLoginOpen(true)}>
                             Login
                             </Button>
                         </Box>
@@ -104,13 +91,16 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                         <Box className={"wel-txt"}>Specialty Blends, Compose Coffee</Box>
                         <Box className={"service-txt"}>24 hours service</Box>   
                         <Box className={"signup"}>
-                            {!authmember ? (
-                                <Button
-                                variant={"contained"} 
-                                className={"signup-button"}
-                                >SIGN UP</Button>
-                            ) : null}
-                        </Box>
+                        {!authmember ? (
+                            <Button
+                            variant={"contained"} 
+                            className={"signup-button"}                            
+                            onClick={() => setSignupOpen(true)} 
+                            >
+                            SIGN UP
+                            </Button>
+                        ) : null}
+                    </Box>
                     </Stack>
                     <Box className={"video-frame"}>
                         <video className={"background-video"} autoPlay loop muted>
