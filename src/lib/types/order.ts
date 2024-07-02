@@ -2,10 +2,10 @@ import { OrderStatus } from "../enums/order.enum";
 import { Product } from "./product";
 
 export interface OrderItemInput {
-    itemQuantity: number;
-    itemPrice: number;
-    productId: string;
-    orderId?: string;
+  itemQuantity: number;
+  itemPrice: number;
+  productId: string;
+  orderId?: string;
 }
 
 export interface OrderItem {

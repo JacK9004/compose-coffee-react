@@ -9,12 +9,12 @@ export const retrievePausedOrders = createSelector(
     (OrdersPage) => OrdersPage.pausedOrders
 );
 
-export const retriveProcessOrders = createSelector(
+export const retrieveProcessOrders = createSelector(
     selectOrdersPage,
     (OrdersPage) => OrdersPage.processOrders
 );
 
-export const retriveFinishedOrders = createSelector(
+export const retrieveFinishedOrders = createSelector(
     selectOrdersPage,
     (OrdersPage) => OrdersPage.finishedOrders
 );
