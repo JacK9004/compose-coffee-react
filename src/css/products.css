@@ -39,10 +39,10 @@
 
 .products-page .products .search-big-box {
 	position: relative;
-	width: 60%;
+	width: auto;
 	height: 33px;
 	display: flex;
-	align-items: center;
+	align-items: right;
 	background: #fffcfc;
 	border: 1px solid #ffffff;
 	box-shadow: 0px 4px 4px rgba(213, 213, 213, 0.25);

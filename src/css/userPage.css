@@ -116,13 +116,13 @@
 .user-page .order-info-box .order-user-icon-box {
 	position: absolute;
 	padding: 5px;
-	width: 37px;
-	height: 37px;
+	width: 40px;
+	height: 40px;
 	top: 81%;
 	right: 0;
 	display: flex;
 	background: rgb(209 209 209 / 33%);
-	border-radius: 37px;
+	border-radius: 200px;
 }
 
 .user-page .order-info-box .order-user-name {

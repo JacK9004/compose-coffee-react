@@ -343,7 +343,7 @@ export default function Products(props: ProductsProps) {
                 >
                     <Box className={"category-title"}>Annual Win Awards</Box>
                     <Stack flexDirection={"row"} display={"flex"} justifyContent={"space-between"} width={"100%"} className="review-box">
-                        {["/img/activeuser1.png", "/img/activeuser2.png", "/img/activeuser3.png", "/img/activeuser4.png"].map((ele, index) => (
+                        {["/img/win2.png", "/img/win3.png", "/img/win4.png", "/img/win5.png"].map((ele, index) => (
                             <Box className={"review-box"} key={index}>
                                 <Box className={"review-img"}>
                                     <img src={ele} className={"review-img"} />                                    
