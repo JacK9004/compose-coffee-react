@@ -1,7 +1,9 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import HomePageReducer from "./screens/homePage/slice";
 import ProductsPageReducer from "./screens/productsPage/slice";
+import OrdersPageReducer from "./screens/ordersPage/slice";
 import reduxLogger from "redux-logger";  // redux storage ichida qanday ma'limotlar borligini va o'zgarishlarni kuzatish uchun kerak
+
 
 export const store = configureStore({
   middleware: (getDefaultMiddleware) => 
@@ -10,6 +12,7 @@ export const store = configureStore({
   reducer: {
     homePage: HomePageReducer,
     productsPage: ProductsPageReducer,
+    ordersPage: OrdersPageReducer
   },
 });
 
