@@ -157,7 +157,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                         <Box className={"wel-txt"}>Specialty Blends, Compose Coffee</Box>
                         <Box className={"service-txt"}>24 hours service</Box>   
                         <Box className={"signup"}>
-                        {authMember ? (
+                        {!authMember ? (
                             <Button
                             variant={"contained"} 
                             className={"signup-button"}                            

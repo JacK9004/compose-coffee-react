@@ -11,13 +11,13 @@ import Footer from "./components/footer";
 import HelpPage from "./screens/helpPage";
 import useBasket from './hooks/useBasket';
 import AuthenticationModal from './components/auth';
-import "../css/app.css";
-import "../css/navbar.css";
-import "../css/footer.css";
 import { useGlobals } from './hooks/useGlobals';
 import MemberService from './services/MemberService';
 import { sweetErrorHandling, sweetTopSuccessAlert } from '../lib/sweetAlert';
 import { Messages } from '../lib/config';
+import "../css/app.css";
+import "../css/navbar.css";
+import "../css/footer.css";
 
 
 function App() {
